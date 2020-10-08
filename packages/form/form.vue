@@ -1,37 +1,16 @@
 <template>
-  <form action="" @submit.prevent="$emit('submit', $event)">
-    <slot></slot>
-  </form>
+  <div>
+    
+  </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: 'j-form',
-  data() {
-    return {
-      errors: {},
-      validator: '',
-      eventTriggerModel: {},
-      requiredFieldsList: []
-    }
-  },
-  props: {
-    // 表单验证对象
-    model: {
-      type: Object
-    },
-    // 验证的正则
-    rules: {
-      type: Object
-    }
-  },
-  mounted() {
-
-  },
-  
-}
+  setup() {
+    
+  }
+})
 </script>
-
-<style lang="scss" scoped>
-
-</style>

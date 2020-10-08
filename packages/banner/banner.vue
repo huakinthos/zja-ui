@@ -16,6 +16,7 @@
 
 <script>
 import icon from '../icon/icon.vue'
+import button from '@/button/button.vue'
 export default {
   name: 'j-banner',
   props: {
