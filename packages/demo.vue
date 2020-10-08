@@ -1,15 +1,15 @@
 <template>
   <div>
-    <j-todo></j-todo>
+    hello
   </div>
 </template>
 
-<script>
-import toast from './plugins/toast'
-import bounce from './plugins/bounce'
-import Vue from 'vue'
-Vue.use(toast)
-Vue.use(bounce)
+<script lang="ts">
+// import toast from './plugins/toast'
+// import bounce from './plugins/bounce'
+import app from './main';
+// app.use(toast)
+// app.use(bounce)
 
 export default {
   data() {

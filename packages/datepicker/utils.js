@@ -1,5 +1,5 @@
 function getDateInfo(dateObj) {
-  let [ date, month, year ] = [ dateObj.getDate(), dateObj.getMonth(), dateObj.getFullYear() ]
+  const [ date, month, year ] = [ dateObj.getDate(), dateObj.getMonth(), dateObj.getFullYear() ]
   return { date, month, year }
 }
 
@@ -14,11 +14,11 @@ function normalizedDoubleDigits(num) {
 
 export default {
   getMonthFirstDay(dateObj) {
-    let { month, year } = getDateInfo(dateObj)
+    const { month, year } = getDateInfo(dateObj)
     return new Date(year, month, 1)
   },
   getMonthLastDay(dateObj) {
-    let { month, year } = getDateInfo(dateObj)
+    const { month, year } = getDateInfo(dateObj)
     return new Date(year, month + 1, 0)
   },
   // 获取星期几
@@ -26,7 +26,7 @@ export default {
     return dateObj.getDay()
   },
   getRange(begin, end) {
-    let arr = []
+    const arr = []
     for (let i = begin; i <= end; i++) {
       arr.push[i]
     }
@@ -34,23 +34,24 @@ export default {
   },
   getFormatDate(dateObj) {
     let { date, month, year } = getDateInfo(dateObj)
-    let seperator = '-'
+    const seperator = '-'
     date = normalizedDoubleDigits(date)
     month = normalizedDoubleDigits(month)
-    let array = [year, month, date]
+    year = ++year
+    const array = [year, month, date]
     return array.join(seperator)
   },
   isInSameDay(dateA, dateB) {
-    let { date: date1, month: month1, year: year1 } = getDateInfo(dateA)
-    let { date: date2, month: month2, year: year2 } = getDateInfo(dateB)
+    const { date: date1, month: month1, year: year1 } = getDateInfo(dateA)
+    const { date: date2, month: month2, year: year2 } = getDateInfo(dateB)
     return date1 === date2 && month1 === month2 && year1 === year2
   },
   setNewYear(dateObj, newDate) {
-    let { month, date } = getDateInfo(dateObj)
+    const { month, date } = getDateInfo(dateObj)
     return new Date(newDate, month, date)
   },
   setNewMonth(dateObj, newDate) {
-    let { year, date } = getDateInfo(dateObj)
+    const { year, date } = getDateInfo(dateObj)
     return new Date(year, newDate, date)
   }
 }

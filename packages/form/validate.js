@@ -1,16 +1,16 @@
-class Validator {
+export default class Validator {
   static add(fnName, fn) {
     Validator.prototype[fnName] = fn
   }
 
   validate (formData, rules) {
-    let errs = {}
-    for (let item of Object.entries(rules)) { // [[name,[namerule]]]
-      let checkName = item[0]
+    const errs = {}
+    for (const item of Object.entries(rules)) { // [[name,[namerule]]]
+      const checkName = item[0]
       if (formData[checkName] === undefined) continue
-      for (let rule of item[1]) {
-        let validatorKey = Object.keys(rule).filter(x => ['lengthControl', 'pattern', 'validator', 'required'].includes(x))[0]
-        let res = this[validatorKey](formData[checkName], rule)
+      for (const rule of item[1]) {
+        const validatorKey = Object.keys(rule).filter(x => ['lengthControl', 'pattern', 'validator', 'required'].includes(x))[0]
+        const res = this[validatorKey](formData[checkName], rule)
         if (!res) {
           console.log(checkName, 'checked failed in', validatorKey)
           errs[checkName] = rule.message
@@ -32,8 +32,8 @@ class Validator {
 
   lengthControl (val, rule) {
     let flag = true
-    let dataLength = val.toString().length
-    let [min, max] = rule.lengthControl
+    const dataLength = val.toString().length
+    const [min, max] = rule.lengthControl
     if (min && dataLength < min) { flag = false }
     if (max && dataLength > max) { flag = false }
     return flag
@@ -44,7 +44,7 @@ class Validator {
   }
 
   pattern (val, rule) {
-    let res = rule.pattern.test(val)
+    const res = rule.pattern.test(val)
     return res
   }
 

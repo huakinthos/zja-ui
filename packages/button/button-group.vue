@@ -8,7 +8,7 @@
 export default {
   name: 'j-button-group',
   mounted() {
-    for (let node of this.$el.children) {
+    for (const node of this.$el.children) {
       if (node.nodeName.toLowerCase != 'button') {
         console.warn('子组件必须为button')
       }
